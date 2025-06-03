@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import EmojiBadge from "@/components/EmojiBadge";
+import  EmojiBadge  from "./EmojiBadge";
 import { PROFILE } from "@/data/about";
 
 export function ProfileSection() {

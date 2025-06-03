@@ -1,4 +1,4 @@
-import { TagBadge } from "../TagBadge";
+import { TagBadge } from "./TagBadge";
 
 export const PostSidebar = ({
   description,
