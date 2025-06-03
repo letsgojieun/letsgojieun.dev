@@ -22,6 +22,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/posts/contents/my-first-post.mdx"
+, "next.config.mjs", "src/app/posts/[slug]/page.tsx", "tailwind.config.js"  ],
   "exclude": ["node_modules"]
 }
