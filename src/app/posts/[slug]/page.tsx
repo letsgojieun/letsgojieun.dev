@@ -4,12 +4,13 @@ import { PostHeader } from "@/components/post/PostHeader";
 import { PostContent } from "@/components/post/PostContent";
 import { PostSidebar } from "@/components/post/PostSidebar";
 
-export default function PostDetailPage({
+export default async function PostDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return notFound();
 
   return (
