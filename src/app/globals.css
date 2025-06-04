@@ -19,8 +19,35 @@
   --color-subtitle-light: #888888;
 }
 
-.icon-responsive {
-  @apply text-2xl sm:text-3xl;
+@layer components {
+  .section-title {
+    @apply text-2xl font-bold mb-4;
+  }
+
+  .border-rounded {
+    @apply rounded-md border px-3 py-1;
+  }
+
+  .divider-theme {
+    @apply border-divider-light dark:border-divider-dark;
+  }
+
+  .prose pre {
+    @apply bg-gray-500 rounded-md p-4 overflow-x-auto w-full;
+    background: gray;
+    border-radius: 8px;
+    padding: 1em;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .prose pre code {
+    @apply font-mono;
+  }
+
+  .icon-responsive {
+    @apply text-2xl sm:text-3xl;
+  }
 }
 
 html,
@@ -55,16 +82,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
-
-.prose pre {
-  background: gray;
-  border-radius: 8px;
-  padding: 1em;
-  overflow-x: auto;
-  width: 100%;
-}
-
-.prose pre code {
-  font-family: monospace;
 }

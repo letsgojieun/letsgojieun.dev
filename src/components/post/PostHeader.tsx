@@ -7,7 +7,7 @@ export const PostHeader = ({
 }) => {
   return (
     <section
-      className="flex flex-row justify-between items-center border border-divider-light dark:border-divider-dark bg-content-light dark:bg-content-dark rounded-xl p-4"
+      className="flex flex-row justify-between items-center border divider-theme bg-content-light dark:bg-content-dark rounded-xl p-4"
       aria-labelledby="post-title"
     >
       <h1 id="post-title" className="text-2xl font-semibold text-blue">

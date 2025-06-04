@@ -4,7 +4,7 @@ export function CareersSection() {
   return (
     <section className="flex flex-col gap-10 items-start">
       <div>
-        <h2 className="text-2xl font-semibold mb-4">Professional Experience</h2>
+        <h2 className="section-title">Professional Experience</h2>
         <ul className="space-y-6">
           {CAREERS.map((career) => (
             <li key={career.company}>
