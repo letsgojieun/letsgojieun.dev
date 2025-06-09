@@ -5,24 +5,24 @@ import { useEffect, useState } from "react";
 import { BiSolidMoon, BiSolidSun } from "react-icons/bi";
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 
   return (
     <button
       className="cursor-pointer transition-transform duration-200 hover:scale-110"
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label={`Switch to ${
+        resolvedTheme === "dark" ? "light" : "dark"
+      } mode`}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       type="button"
     >
       <span className="icon-responsive">
-        {theme === "dark" ? <BiSolidSun /> : <BiSolidMoon />}
+        {resolvedTheme === "dark" ? <BiSolidSun /> : <BiSolidMoon />}
       </span>
     </button>
   );
