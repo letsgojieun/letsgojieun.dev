@@ -1,6 +1,8 @@
+import { getAllPostsMeta } from "@/lib/posts";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getAllPostsMeta();
   return [
     {
       url: "https://www.letsgojieun.dev/",
@@ -20,5 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...posts.map((post) => ({
+      url: `https://letsgojieun.dev/posts/${post.slug}`,
+      lastModified: new Date(post.date).toISOString(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
   ];
 }
