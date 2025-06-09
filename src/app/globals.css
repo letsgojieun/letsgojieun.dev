@@ -32,6 +32,12 @@
     @apply border-divider-light dark:border-divider-dark;
   }
 
+  .button-hover {
+    @apply transition-all duration-300 origin-bottom-left
+    hover:-skew-y-3 cursor-pointer hover:-translate-x-[0.1] hover:-translate-y-[0.1]
+    hover:shadow-lg hover:shadow-divider-light dark:hover:shadow-divider-dark;
+  }
+
   .prose pre {
     @apply bg-gray-500 rounded-md p-4 overflow-x-auto w-full;
     background: gray;

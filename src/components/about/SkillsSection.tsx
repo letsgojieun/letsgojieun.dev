@@ -14,7 +14,10 @@ export function SkillsSection() {
           {SKILLS.map((skill) => (
             <li
               key={skill}
-              className="border-rounded font-gaegu divider-theme border-b"
+              className="
+              border-rounded font-gaegu divider-theme border-b button-hover
+              hover:bg-content-light dark:hover:bg-content-dark
+              "
             >
               {skill}
             </li>
