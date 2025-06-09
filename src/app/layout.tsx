@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/Header";
+import { gaegu, solway } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "letsgojieun.dev",
@@ -30,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${solway.variable} ${gaegu.variable}`}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
