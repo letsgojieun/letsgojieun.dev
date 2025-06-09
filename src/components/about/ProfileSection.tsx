@@ -15,6 +15,8 @@ export function ProfileSection() {
           alt="jieungo's profile image"
           width={250}
           height={250}
+          sizes="(max-width: 768px) 80vw, 250px"
+          quality={60}
           className="rounded-full object-cover border-2 divider-theme bg-button-light dark:bg-button-dark"
           priority
         />

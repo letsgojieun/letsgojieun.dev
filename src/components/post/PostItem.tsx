@@ -29,9 +29,11 @@ export const PostItem = ({ post }: PostItemProps) => {
       <Image
         src={post.thumbnail}
         alt={post.title}
-        width={100}
-        height={50}
-        className="object-cover rounded-md w-60 h-30 sm:w-80 sm:h-40"
+        width={320}
+        height={160}
+        quality={60}
+        sizes="(max-width: 640px) 80vw, 320px"
+        className="object-cover rounded-md w-auto h-auto"
       />
     </Link>
   );
