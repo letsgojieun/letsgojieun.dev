@@ -9,16 +9,19 @@ const navs = [
     href: "/",
     label: "Home",
     icon: <GoHomeFill />,
+    ariaLabel: "Home page",
   },
   {
     href: "/about",
     label: "About",
     icon: <BsFillPersonFill />,
+    ariaLabel: "About page",
   },
   {
     href: "/posts",
     label: "Posts",
     icon: <BiLogoBlogger />,
+    ariaLabel: "Posts page",
   },
 ];
 
@@ -42,6 +45,7 @@ export const Header = () => {
             className={`
               flex items-center gap-2
             `}
+            aria-label={nav.ariaLabel}
           >
             <span className="icon-responsive">{nav.icon}</span>
             <span className="hidden sm:inline font-gaegu text-xl">
