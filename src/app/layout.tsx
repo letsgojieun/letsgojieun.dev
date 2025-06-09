@@ -5,12 +5,13 @@ import { Header } from "@/components/Header";
 import { gaegu, solway } from "@/fonts";
 
 export const metadata: Metadata = {
-  title: "letsgojieun.dev",
+  title: "letsgojieun.dev | Jieun Go's Front-end Blog & Portfolio",
   description:
-    "welcome to jieun go's website. which is front-end developer's portfolio.",
+    "letsgojieun.dev is a portfolio and blog of Jieun Go, a front-end developer.",
   openGraph: {
     title: "letsgojieun.dev",
-    description: "A front-end developer in Australia.",
+    description:
+      "letsgojieun.dev is a portfolio and blog of Jieun Go, a front-end developer.",
     url: "https://letsgojieun.dev/",
     siteName: "letsgojieun.dev",
     images: [
