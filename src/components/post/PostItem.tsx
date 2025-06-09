@@ -5,9 +5,10 @@ import { TagBadge } from "./TagBadge";
 
 interface PostItemProps {
   post: PostMeta;
+  idx: number;
 }
 
-export const PostItem = ({ post }: PostItemProps) => {
+export const PostItem = ({ post, idx }: PostItemProps) => {
   return (
     <Link
       href={`/posts/${post.slug}`}
@@ -34,6 +35,7 @@ export const PostItem = ({ post }: PostItemProps) => {
         quality={60}
         sizes="(max-width: 640px) 80vw, 320px"
         className="object-cover rounded-md w-auto h-auto"
+        priority={idx < 3}
       />
     </Link>
   );
