@@ -30,10 +30,9 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
       <Image
         src={post.thumbnail}
         alt={post.title}
-        width={320}
+        width={360}
         height={160}
         quality={60}
-        sizes="(max-width: 640px) 80vw, 320px"
         className="object-cover rounded-md w-auto h-auto"
         priority={idx < 3}
       />

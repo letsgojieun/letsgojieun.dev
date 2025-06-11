@@ -38,22 +38,48 @@
     hover:shadow-lg hover:shadow-divider-light dark:hover:shadow-divider-dark;
   }
 
-  .prose pre {
-    @apply bg-gray-500 rounded-md p-4 overflow-x-auto w-full;
-    background: gray;
-    border-radius: 8px;
-    padding: 1em;
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  .prose pre code {
-    @apply font-mono;
-  }
-
   .icon-responsive {
     @apply text-2xl sm:text-3xl;
   }
+}
+
+/* 
+post content
+ */
+
+.post-content h2 {
+  @apply w-fit font-bold px-1 text-base;
+  font-size: 1.2rem;
+}
+.post-content h3 {
+  @apply w-fit font-bold;
+  font-size: 1.1rem;
+}
+.post-content h4 {
+  @apply font-bold underline underline-offset-2;
+  font-size: 1rem;
+}
+.post-content img {
+  @apply rounded-md mx-auto my-12;
+}
+.post-content hr {
+  @apply my-16;
+}
+
+.prose pre {
+  @apply bg-gray-500 rounded-md p-4 overflow-x-auto w-full;
+}
+
+.prose pre code {
+  @apply font-mono text-sm;
+}
+
+.prose blockquote {
+  border-left: 4px solid #d1d5db;
+  padding-left: 1em;
+  color: #6b7280;
+  font-style: italic;
+  background: #f9fafb;
 }
 
 html,
