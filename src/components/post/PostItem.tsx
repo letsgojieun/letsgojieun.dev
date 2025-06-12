@@ -17,8 +17,10 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
     >
       <div className="flex flex-col gap-2">
         <div>
-          <h2 className="text-xl font-semibold text-blue">{post.title}</h2>
-          <p>{post.description}</p>
+          <h1 className="text-lg md:text-xl font-semibold text-blue">
+            {post.title}
+          </h1>
+          <p className="text-md md:text-base">{post.description}</p>
         </div>
         <div>
           {post.tags.map((tag) => (

@@ -10,7 +10,7 @@ export const PostSidebar = ({
   return (
     <aside className="flex flex-col gap-2 basis-1/4">
       <div>
-        <h2 className="text-xl font-semibold">Description</h2>
+        <h2 className="text-md md:text-base font-semibold">Description</h2>
         <p>{description}</p>
       </div>
       <div>
