@@ -18,10 +18,7 @@ export default function EmojiBadge() {
         absolute bottom-5 right-5 cursor-pointer
         flex items-center justify-center
         w-10 h-10 rounded-full bg-white 
-        text-lg
-        border border-divider-light
-        z-10
-        pt-1
+        text-lg border border-divider z-10 pt-1
         "
         aria-label="emoji badge"
         onClick={handleClick}

@@ -20,7 +20,7 @@ export default function Home() {
         rootMargin="-100px"
         textAlign="center"
       />
-      <span className="lg:text-3xl sm:text-2xl text-xl text-center dark:text-subtitle-light text-subtitle-dark font-gaegu">
+      <span className="lg:text-3xl sm:text-2xl text-xl text-center text-subtitle font-gaegu">
         A front-end developer in Australia.
       </span>
     </main>

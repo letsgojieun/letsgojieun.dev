@@ -17,7 +17,7 @@ export function ProfileSection() {
           height={250}
           sizes="(max-width: 768px) 80vw, 250px"
           quality={60}
-          className="rounded-full object-cover border-2 divider-theme bg-button-light dark:bg-button-dark"
+          className="rounded-full object-cover border-2 divider-theme bg-button"
           priority
         />
         <EmojiBadge />
@@ -29,7 +29,7 @@ export function ProfileSection() {
           </h1>
           <Link
             href={`mailto:${PROFILE.email}`}
-            className="text-xl  bg-button-light dark:bg-button-dark  
+            className="text-xl  bg-button  
             text-center font-gaegu border-rounded divider-theme w-full"
           >
             {`Let's Coffee Chat`}
@@ -53,7 +53,7 @@ function Strengths({ strengths }: { strengths: string[] }) {
   return (
     <div>
       <span>Key Strengths</span>
-      <ul className="list-disc pl-5 space-y-1 dark:text-gray-200">
+      <ul className="list-disc pl-5 space-y-1">
         {strengths.map((strength) => (
           <li key={strength}>{strength}</li>
         ))}

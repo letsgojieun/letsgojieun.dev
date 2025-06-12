@@ -12,7 +12,7 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className=" hover:bg-content-light dark:hover:bg-content-dark  p-4 flex sm:flex-row flex-col justify-between sm:items-center"
+      className=" hover:bg-content  p-4 flex sm:flex-row flex-col justify-between sm:items-center"
       aria-label={`${post.title} post`}
     >
       <div className="flex flex-col gap-2">

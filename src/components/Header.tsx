@@ -29,7 +29,7 @@ export const Header = () => {
   return (
     <header
       className="w-full flex justify-between sticky top-0 z-10 p-2 
-      bg-header-light dark:bg-header-dark divider-theme border-b
+      bg-header divider-theme border-b
     "
       role="banner"
     >

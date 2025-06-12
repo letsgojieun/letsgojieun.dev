@@ -7,16 +7,19 @@
   --font-solway: Solway, "Apple SD Gothic Neo", Arial, sans-serif;
   --header-height: 60px;
   --color-blue: #4493f8;
-  --color-divider-light: #d0d9e0;
-  --color-divider-dark: #3d444d;
-  --color-header-dark: #02040a;
-  --color-header-light: #f6f8fa;
-  --color-content-dark: #151b23;
-  --color-content-light: #f6f8fa;
-  --color-button-dark: #202830;
-  --color-button-light: #f6f8fa;
-  --color-subtitle-dark: #757575;
-  --color-subtitle-light: #888888;
+  --color-divider: #d0d9e0;
+  --color-header: #f6f8fa;
+  --color-content: #f6f8fa;
+  --color-button: #f6f8fa;
+  --color-subtitle: #888888;
+}
+
+.dark {
+  --color-divider: #3d444d;
+  --color-header: #02040a;
+  --color-content: #151b23;
+  --color-button: #202830;
+  --color-subtitle: #757575;
 }
 
 @layer components {
@@ -29,13 +32,16 @@
   }
 
   .divider-theme {
-    @apply border-divider-light dark:border-divider-dark;
+    border-color: var(--color-divider);
   }
 
   .button-hover {
     @apply transition-all duration-300 origin-bottom-left
-    hover:-skew-y-3 cursor-pointer hover:-translate-x-[0.1] hover:-translate-y-[0.1]
-    hover:shadow-lg hover:shadow-divider-light dark:hover:shadow-divider-dark;
+    hover:-skew-y-3 cursor-pointer hover:-translate-x-[0.1] hover:-translate-y-[0.1];
+  }
+
+  .button-hover:hover {
+    box-shadow: 0 2px 8px 0 var(--color-divider);
   }
 
   .icon-responsive {
@@ -43,9 +49,9 @@
   }
 }
 
-/* 
+/*
 post content
- */
+*/
 
 .post-content h2 {
   @apply w-fit font-bold px-1 text-base;
@@ -75,11 +81,17 @@ post content
 }
 
 .prose blockquote {
-  border-left: 4px solid #d1d5db;
+  border-left: 4px solid var(--color-divider);
   padding-left: 1em;
-  color: #6b7280;
+  color: var(--color-subtitle);
   font-style: italic;
-  background: #f9fafb;
+  background: var(--color-content);
+}
+
+.dark .prose blockquote {
+  border-left: 4px solid var(--color-divider);
+  background: var(--color-content);
+  color: var(--color-subtitle);
 }
 
 html,

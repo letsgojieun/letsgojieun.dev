@@ -16,7 +16,7 @@ export function SkillsSection() {
               key={skill}
               className="
               border-rounded font-gaegu divider-theme border-b button-hover
-              hover:bg-content-light dark:hover:bg-content-dark
+              hover:bg-content
               "
             >
               {skill}
