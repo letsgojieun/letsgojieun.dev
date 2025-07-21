@@ -127,3 +127,22 @@ a {
     color-scheme: dark;
   }
 }
+
+.prose table {
+  @apply w-full border-collapse;
+  border: 1px solid var(--color-divider);
+}
+
+.prose th {
+  @apply bg-gray-50 dark:bg-gray-800 font-semibold text-left px-4 py-2;
+  border: 1px solid var(--color-divider);
+}
+
+.prose td {
+  @apply px-4 py-2;
+  border: 1px solid var(--color-divider);
+}
+
+.prose tr:nth-child(even) {
+  @apply bg-gray-50/50 dark:bg-gray-800/30;
+}
