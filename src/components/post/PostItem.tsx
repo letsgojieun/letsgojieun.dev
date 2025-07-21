@@ -29,15 +29,17 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
         </div>
         <p className="text-gray-500 font-gaegu ">posted on {post.date}</p>
       </div>
-      <Image
-        src={post.thumbnail}
-        alt={post.title}
-        width={360}
-        height={160}
-        quality={60}
-        className="object-cover rounded-md w-auto h-auto"
-        priority={idx < 3}
-      />
+      <div className="flex-shrink-0 w-full sm:w-auto">
+        <Image
+          src={post.thumbnail}
+          alt={post.title}
+          width={200}
+          height={120}
+          quality={60}
+          className="object-cover rounded-md w-full h-48 sm:w-60 sm:h-36 md:w-72 md:h-40"
+          priority={idx < 3}
+        />
+      </div>
     </Link>
   );
 };
