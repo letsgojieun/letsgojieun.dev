@@ -1,0 +1,106 @@
+---
+title: "Unlocking Real Team Chemistry: How Smarter Commits Make Collaboration Effortless"
+description: "How my small habits changed the team’s vibe"
+date: "July 21, 2025"
+thumbnail: "/posts/20250721/postit.png"
+tags: ["Teamwork", "dev culture", "git", "commit tips"]
+---
+
+## Smarter Commits for Everyone
+
+Collaborating with others on code is way more complex than working alone.  
+What really made a difference for me was learning, often the hard way, how small, focused commits can completely change a team’s workflow.  
+Today, I want to share the mistakes I made while first learning how to collaborate—the kinds of things nobody really teaches you.
+
+<br />
+
+## 🛠️ 1. Don’t Just Commit—Split by Purpose
+
+In the beginning, I’d just keep coding and commit whenever I felt like it.  
+That led to things like mixing “profile photo upload” and “fixed error message display” in a single commit.  
+Rolling back changes or reviewing code became a real mess.
+
+![book img](/posts/20250721/commit.png)
+
+- **One job/bugfix/refactor = one commit**
+- If I change multiple files, I always break it down by the feature or fix
+- If my commit message is getting long, that’s a sign to split it up!
+
+<br />
+
+| All at once (not great)        | Split by feature (much better) |
+| ------------------------------ | ------------------------------ |
+| feat: image upload & error fix | feat: profile image upload     |
+|                                | fix: error message display bug |
+
+<br />
+
+#### Why This Works
+
+- **Easy rollbacks & bug tracking**: If something goes wrong, just roll back that one commit.
+- **Clearer code reviews**: Reviewers see exactly what changed—less confusion, less miscommunication.
+- **Cleaner history**: When I look back at my logs, it’s obvious what was done and why.
+
+<br />
+<br />
+
+## 📝 2. Ditch “fix”—Write Clear Commit Messages
+
+![book img](/posts/20250721/postit.png)
+commit message was just `"fix"` or `"update"`, even I’d be confused about what I did a few days later.  
+Now, I always summarize _what_ I changed and _why_ in a single, clear line.
+
+<br />
+
+```text
+# Don’t do this
+git commit -m "fix"
+
+# Do this instead
+git commit -m "fix: prevent wrong alert showing during cancellation (#42)"
+```
+
+<br />
+
+- **Be specific**: One line that explains _what_ and _why_.
+- **Keep it under 76 characters** so it’s easy to read in `git log`.
+- **Add an issue number** or a quick note for context—this makes life easier for everyone.
+
+<br />
+<br />
+## 🔄 3. After Committing, Open Small PRs with Context
+
+![book img](/posts/20250721/notify.png)
+(PRs) don’t have to be huge batches of changes.  
+I like to open small PRs for each feature or fix, and always explain _what_, _why_, and _how_ I changed something.
+
+<br />
+
+| Not-so-great PR Example  | Clear PR Example                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| **Title:** Profile edits | **Title:** [Booking] Add error handling for cancel API                             |
+| **Body:** (empty)        | **Body:**- Handle 409 error during cancel- Improve user experience- Related to #42 |
+
+<br />
+
+Doing it this way means everyone knows what’s changed—reviewers can give quick, meaningful feedback, and nobody gets lost in the details.
+
+<br />
+## 🤏 If Your Message Is Getting Long, That’s a Split Signal!
+
+If I can’t explain a commit or PR in one simple sentence, it’s usually a sign I’m doing too much at once.  
+When that happens, I take a step back and break things down into smaller, single-purpose pieces.  
+Short, clear messaging and focused PRs build trust and make teamwork much smoother.
+
+<br />
+## ✨ Wrap-Up: A Good Commit Makes Everyone’s Life Easier
+<br />
+- **Small, focused commits** - **Clear commit messages** - **Brief, descriptive PRs**
+<br />
+These three habits might seem like a small thing, but they really do make a difference—for
+me, for my teammates, and for the whole project.
+
+Next time you commit, ask yourself: _Is this truly helpful for me and my team?_
+
+<br />
+**It’s never too late to start making smarter commits. 🚀**
