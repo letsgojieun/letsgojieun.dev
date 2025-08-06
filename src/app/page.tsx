@@ -3,10 +3,7 @@ import SplitText from "../components/SplitText";
 
 export default function Home() {
   return (
-    <main
-      className="flex-1 flex flex-col items-center justify-center h-full"
-      role="main"
-    >
+    <div className="flex-1 flex flex-col items-center justify-center h-full">
       <SplitText
         text="Hi there, I'm Jieun"
         className="lg:text-7xl sm:text-5xl text-2xl font-bold text-center font-solway"
@@ -23,6 +20,6 @@ export default function Home() {
       <span className="lg:text-3xl sm:text-2xl text-xl text-center text-subtitle font-gaegu">
         A front-end developer in Australia.
       </span>
-    </main>
+    </div>
   );
 }
