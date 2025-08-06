@@ -10,7 +10,7 @@ export const PROFILE = {
   ],
   aboutInfo: [
     "💼 3years of experience",
-    "📍 Based in Queensland, Australia",
+    "📍 Based in Australia",
     "⚙️ TechStack: ReactNative, Next, Zustand, Redux, React-Query, Typescript",
   ],
 };
