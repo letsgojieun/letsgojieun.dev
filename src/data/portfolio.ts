@@ -78,7 +78,7 @@ export const PROJECTS: Project[] = [
     ],
     otherTools: ["Figma"],
     role: [
-      "Led full cycle from planning to design, development, and QA through close cooperation with designers, planners, and backend developers",
+      "Led full cycle from planning to design, development, and QA through close cooperation with designers, project managers, and backend developers",
       "Regularly monitored Voice of Customer (VOC) feedback and directly engaged users via Q&A to identify needs and issues",
       "Built real-time reservation schedule calendar/timeline and sales dashboards",
       "Contributed to app frontend development using React Native",
@@ -138,7 +138,7 @@ export const PROJECTS: Project[] = [
     otherTools: ["SEO tools", "Lighthouse"],
     role: [
       "Integrated map APIs and designed/implemented card list UI",
-      "Collaborated with planners, designers, and backend developers to develop full CRUD functionality and optimize UI/UX",
+      "Collaborated with project managers, designers, and backend developers to develop full CRUD functionality and optimize UI/UX",
       "Performed SEO optimization through metadata creation and Google Search Console setup, continuously improving web performance metrics",
       "Proposed and integrated user review incentive policies to boost user engagement",
     ],
