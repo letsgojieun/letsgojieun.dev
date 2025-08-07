@@ -38,6 +38,7 @@ export const Header = () => {
       className="w-full flex justify-between sticky top-0 z-10 p-2 
       bg-header divider-theme border-b
     "
+      style={{ height: "var(--header-height)" }}
       role="banner"
     >
       <nav
@@ -55,7 +56,7 @@ export const Header = () => {
             aria-label={nav.ariaLabel}
           >
             <span className="icon-responsive">{nav.icon}</span>
-            <span className="hidden sm:inline font-gaegu text-xl">
+            <span className="hidden sm:inline font-solway text-md">
               {nav.label}
             </span>
           </Link>
