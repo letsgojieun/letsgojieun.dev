@@ -3,6 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 import { BiLogoBlogger } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import { GoHomeFill } from "react-icons/go";
+import { MdWork } from "react-icons/md";
 
 const navs = [
   {
@@ -22,6 +23,12 @@ const navs = [
     label: "Posts",
     icon: <BiLogoBlogger />,
     ariaLabel: "Posts page",
+  },
+  {
+    href: "/portfolio",
+    label: "Portfolio",
+    icon: <MdWork />,
+    ariaLabel: "Portfolio page",
   },
 ];
 
