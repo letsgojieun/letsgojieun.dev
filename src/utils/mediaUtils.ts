@@ -24,3 +24,20 @@ export function getContainerClasses(
       return "w-full h-[350px] flex items-center justify-center";
   }
 }
+
+export function getVideoClasses(aspectRatio: AspectRatio) {
+  if (aspectRatio === "landscape") {
+    return "w-4/5 aspect-[3/2] object-contain transition-all duration-300 rounded-lg shadow-xl";
+  }
+  if (aspectRatio === "portrait") {
+    return "w-64 aspect-[9/16] object-cover transition-all duration-300 rounded-lg shadow-xl";
+  }
+  return "w-80 aspect-video object-cover transition-all duration-300 rounded-lg shadow-xl";
+}
+
+export function getImageClasses(aspectRatio: AspectRatio) {
+  if (aspectRatio === "landscape" || aspectRatio === null) {
+    return "w-4/5 object-contain rounded-lg shadow-xl";
+  }
+  return "w-full h-full object-cover";
+}
