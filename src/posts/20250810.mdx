@@ -1,0 +1,246 @@
+---
+title: "Why I Went Beyond Optimization and Changed the Structure"
+description: "How a single keypad feature improved both stability and UX"
+date: "2025-08-10"
+thumbnail: "/posts/20250810/thumbnail.png"
+tags:
+  [
+    "UX Improvement",
+    "Performance",
+    "Form Input",
+    "Custom Keypad",
+    "React Hook Form",
+  ]
+---
+
+# Why I Went Beyond Optimization and Changed the Structure: The Custom Keypad Story
+
+While running my recipe app, I ran into serious performance and UX problems whenever users loaded and edited large amounts of recipe and ingredient data.<br /><br />
+
+At first, I tried all the usual suspects—throttling, partial recalculations, render optimizations—but it quickly became clear: just "tuning around the edges" wouldn't deliver the stable, smooth UX I wanted.<br /><br />
+
+In the end, I made a bigger decision: rebuild the input flow and state handling, which led to introducing a custom keypad. And that single change made all the difference.<br /><br />
+
+## 1. Performance Problems: The Limits of Optimization in Large Input Scenarios
+
+### The old automatic-calculation workflow
+
+When a user clicked "Load Recipe," all their saved ingredients would populate at once. Then, whenever they typed a name or changed a number, a proportional scaling calculation kicked in ~3 seconds later.<br /><br />
+
+This worked fine at first, but the more columns appeared, the worse it got.<br /><br />
+
+### Frequent state updates & re-renders
+
+React Hook Form's state was updating constantly, triggering re-renders across the form. Input was getting heavier and slower.<br /><br />
+
+### Sync hiccups & lag
+
+Updates sometimes failed to show immediately, or inputs became sluggish for several seconds.<br /><br />
+
+### The worst offender: "Unit Cost" mode
+
+The "Unit Cost" screen made this problem exponentially worse. This mode lets you toggle between "Unit Price Input" and "Usage Input". Load just 30 rows and, because the two modes keep separate values, you're actually managing 60 rows of data and fields at the same time.<br /><br />
+
+That means:<br /><br />
+
+- 60 rows registering fields, initializing state, and running calculations all at once<br />
+- Compound state changes and re-renders<br />
+- CPU usage through the roof<br />
+- Calculated results not appearing immediately, making the app feel frozen for seconds<br /><br />
+
+At this point, users understandably asked, "Why is it so slow? Is it broken?"<br /><br />
+
+### Why pure optimization wasn't enough
+
+This is a structural bottleneck, not just inefficient code. Partial recalcs, throttling, and render trims helped, but code tweaks alone couldn't remove the problem entirely.<br /><br />
+
+### Optimization attempts—and what remained
+
+Here's what we tried:<br /><br />
+
+- Modified onChangeQuantity to recalculate only the changed row<br />
+- Added throttling to limit calculation frequency<br />
+- Trimmed down React Hook Form re-renders and memoized components<br /><br />
+
+**Example: partial row calculation**<br /><br />
+
+```ts
+interface Ingredient {
+  ingredient?: string;
+  quantity?: string | number;
+  unit?: string;
+  part?: string;
+  changedQuantity?: string;
+}
+
+interface RecipeFormData {
+  ingredients: Ingredient[];
+  currentRatio: number;
+}
+
+const useOnChangeQuantity = (formMethods: UseFormReturn<RecipeFormData>) => {
+  const { getValues, setValue } = formMethods;
+
+  const onChangeQuantity = useCallback(
+    (rowIndex: number): void => {
+      const ingredient = getValues(`ingredients.${rowIndex}`);
+      if (!ingredient?.quantity) return;
+
+      const currentRatio = getValues("currentRatio");
+      const calculatedValue = (Number(ingredient.quantity) * currentRatio)
+        .toFixed(1)
+        .replace(/\.0$/, "");
+
+      if (ingredient.changedQuantity === calculatedValue) return;
+
+      setValue(`ingredients.${rowIndex}.changedQuantity`, calculatedValue, {
+        shouldValidate: false,
+        shouldDirty: true,
+      });
+    },
+    [getValues, setValue]
+  );
+
+  return onChangeQuantity;
+};
+```
+
+These made the app less laggy, but the initial blast of calculations for 60 rows, plus the throttling delay, still left the UX feeling unresponsive.<br /><br />
+
+## 2. UX Problems: Pain Points in Large Forms
+
+Apart from raw performance, the user experience itself had issues:<br /><br />
+
+### Excessive clicks and keyboard toggling
+
+The on-screen keyboard popped up and down for every cell.<br /><br />
+
+### Tedious column adding
+
+To add a new row, you had to scroll all the way down and tap "Add Ingredient."<br /><br />
+
+### Broken flow for continuous input
+
+Focus moved awkwardly, making quick entry frustrating.<br /><br />
+
+End result: even a simple proportion change required back-and-forth between fields and buttons. The input flow just wasn't smooth.<br /><br />
+
+## 3. The Solution: A Custom Keypad for Both Performance and UX
+
+### Why I went structural
+
+The real bottleneck was:<br /><br />
+
+- Large, synchronous state sync in React Hook Form<br />
+- All calculations firing in one go<br /><br />
+
+Even maxed-out optimizations couldn't give instant feedback and a natural flow. So I decided to separate the calculation trigger from data entry and reimagine the flow entirely.<br /><br />
+
+### Custom keypad: key features
+
+- Tapping an input brings up a keypad docked above the system keyboard<br />
+- Enter ingredient names and quantities in one place<br />
+- Only calculates when you tap "Done"—cutting unnecessary re-renders and recalcs<br />
+- < and > buttons move between columns<br />
+- On the last column, > turns into + to instantly add a new one and keep going<br /><br />
+
+**Custom Keypad in Action:**<br /><br />
+
+<div style={{ textAlign: "center", margin: "20px 0" }}>
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    style={{
+      width: "100%",
+      maxWidth: "280px",
+      borderRadius: "8px",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+      display: "inline-block",
+    }}
+  >
+    <source src="/posts/20250810/keypad.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<br />
+
+**Example:**<br /><br />
+
+```ts
+interface KeypadInputValue {
+  text?: string;
+  number?: number;
+}
+
+interface OnCompleteProps {
+  keypadInputValues: Record<number, KeypadInputValue>;
+  setValue: (name: string, value: unknown) => void;
+  onChangeQuantity: (rowIndex: number) => void;
+  setShowKeypad: (show: boolean) => void;
+}
+
+const onComplete = ({
+  keypadInputValues,
+  setValue,
+  onChangeQuantity,
+  setShowKeypad,
+}: OnCompleteProps): void => {
+  // Update form fields from keypad values
+  Object.entries(keypadInputValues).forEach(([rowIndex, { text, number }]) => {
+    const idx = Number(rowIndex);
+
+    if (text !== undefined) {
+      setValue(`ingredients[${idx}].ingredient`, text);
+    }
+    if (number !== undefined) {
+      setValue(`ingredients[${idx}].quantity`, number);
+      onChangeQuantity(idx);
+    }
+  });
+
+  // Close the keypad after completion
+  // (Could be split out for strict SRP, but here it's part of "complete input")
+  setShowKeypad(false);
+};
+```
+
+<br />
+
+## 4. Impact on Performance and UX
+
+- **Performance**: No more heavy lag when loading large datasets.<br />
+- **Stability**: Fewer stray state changes → less risk of data mismatch or bugs.<br />
+- **UX**: Way fewer clicks and keyboard pops, smooth continuous entry.<br /><br />
+
+## 5. Before & After
+
+| Aspect            | Partial Calc + Throttling (only optimize code) | Custom Keypad (structural change)     |
+| ----------------- | ---------------------------------------------- | ------------------------------------- |
+| Performance       | Fewer ops/renders but still spikes             | Clear trigger, wasted work removed    |
+| UX Responsiveness | Possible delay in results                      | Smooth, uninterrupted flow            |
+| Dev Complexity    | Needs ongoing fine-tuning                      | One-time redesign, easier to maintain |
+| Bug Risk          | Lower, but still possible                      | Minimized with clearer state timing   |
+| Usability         | Frequent clicks & keyboard toggles             | Continuous, focused input             |
+
+<br />
+
+## 6. What I Learned
+
+### Separate entry from calculation
+
+Removing unnecessary live state changes improves both speed and clarity.<br /><br />
+
+### You don't always need to solve it in code
+
+Sometimes, adjusting the UI flow or UX design achieves more with less effort.<br /><br />
+
+### Quick feedback loops matter
+
+Especially in startups, direct, structural solutions can beat endless micro-optimizations.<br /><br />
+
+This project reminded me that not all problems are best solved by "more optimization." For our team, the custom keypad was a single UI change that boosted stability, sped up the experience, and made the app more enjoyable to use.<br /><br />
+
+If you're wrestling with big forms, heavy state, and tricky UX, maybe it's time to think beyond code tweaks and look at the structure itself.
