@@ -277,16 +277,36 @@ header .icon-responsive {
 .prose table {
   @apply w-full border-collapse;
   border: 1px solid var(--color-divider);
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 .prose th {
   @apply bg-gray-50 dark:bg-gray-800 font-semibold text-left px-4 py-2;
   border: 1px solid var(--color-divider);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .prose td {
   @apply px-4 py-2;
   border: 1px solid var(--color-divider);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .prose th,
+  .prose td {
+    white-space: nowrap;
+    min-width: 120px;
+  }
 }
 
 .prose tr:nth-child(even) {
