@@ -22,7 +22,7 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
           </h1>
           <p className="text-md md:text-base">{post.description}</p>
         </div>
-        <div>
+        <div className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <TagBadge key={tag} tag={tag} />
           ))}

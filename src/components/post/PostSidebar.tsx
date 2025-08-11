@@ -13,7 +13,7 @@ export const PostSidebar = ({
         <h2 className="text-md md:text-base font-semibold">Description</h2>
         <p>{description}</p>
       </div>
-      <div>
+      <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
           <TagBadge key={tag} tag={tag} />
         ))}
