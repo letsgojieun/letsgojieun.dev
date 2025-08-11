@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import rehypePrism from "rehype-prism-plus";
 
 export const PostContent = ({ content }: { content: string }) => {
   return (
@@ -12,6 +13,7 @@ export const PostContent = ({ content }: { content: string }) => {
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],
+              rehypePlugins: [rehypePrism],
             },
           }}
         />
