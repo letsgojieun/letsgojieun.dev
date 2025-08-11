@@ -21,7 +21,9 @@ At first, I tried all the usual suspects—throttling, partial recalculations, r
 
 In the end, I made a bigger decision: rebuild the input flow and state handling, which led to introducing a custom keypad. And that single change made all the difference.<br /><br />
 
-## 1. Performance Problems: The Limits of Optimization in Large Input Scenarios
+![main img](/posts/20250810/thumbnail.png)
+
+## 🐌 1. Performance Problems: The Limits of Optimization in Large Input Scenarios
 
 ### The old automatic-calculation workflow
 
@@ -53,6 +55,11 @@ At this point, users understandably asked, "Why is it so slow? Is it broken?"<br
 ### Why pure optimization wasn't enough
 
 This is a structural bottleneck, not just inefficient code. Partial recalcs, throttling, and render trims helped, but code tweaks alone couldn't remove the problem entirely.<br /><br />
+
+> Sometimes the problem isn't in your code—it's in your approach.
+> When optimization hits its limits, it's time to rethink the structure.
+
+<br />
 
 ### Optimization attempts—and what remained
 
@@ -107,7 +114,7 @@ const useOnChangeQuantity = (formMethods: UseFormReturn<RecipeFormData>) => {
 
 These made the app less laggy, but the initial blast of calculations for 60 rows, plus the throttling delay, still left the UX feeling unresponsive.<br /><br />
 
-## 2. UX Problems: Pain Points in Large Forms
+## 😤 2. UX Problems: Pain Points in Large Forms
 
 Apart from raw performance, the user experience itself had issues:<br /><br />
 
@@ -125,7 +132,9 @@ Focus moved awkwardly, making quick entry frustrating.<br /><br />
 
 End result: even a simple proportion change required back-and-forth between fields and buttons. The input flow just wasn't smooth.<br /><br />
 
-## 3. The Solution: A Custom Keypad for Both Performance and UX
+<hr />
+
+## 💡 3. The Solution: A Custom Keypad for Both Performance and UX
 
 ### Why I went structural
 
@@ -135,6 +144,11 @@ The real bottleneck was:<br /><br />
 - All calculations firing in one go<br /><br />
 
 Even maxed-out optimizations couldn't give instant feedback and a natural flow. So I decided to separate the calculation trigger from data entry and reimagine the flow entirely.<br /><br />
+
+> The best optimization sometimes isn't optimization at all.
+> It's changing how users interact with your app.
+
+<br />
 
 ### Custom keypad: key features
 
@@ -209,13 +223,15 @@ const onComplete = ({
 
 <br />
 
-## 4. Impact on Performance and UX
+## 📈 4. Impact on Performance and UX
 
 - **Performance**: No more heavy lag when loading large datasets.<br />
 - **Stability**: Fewer stray state changes → less risk of data mismatch or bugs.<br />
 - **UX**: Way fewer clicks and keyboard pops, smooth continuous entry.<br /><br />
 
-## 5. Before & After
+<hr />
+
+## ⚖️ 5. Before & After
 
 | Aspect            | Partial Calc + Throttling (only optimize code) | Custom Keypad (structural change)     |
 | ----------------- | ---------------------------------------------- | ------------------------------------- |
@@ -226,8 +242,9 @@ const onComplete = ({
 | Usability         | Frequent clicks & keyboard toggles             | Continuous, focused input             |
 
 <br />
+<br />
 
-## 6. What I Learned
+## 🎯 6. What I Learned
 
 ### Separate entry from calculation
 
@@ -240,6 +257,11 @@ Sometimes, adjusting the UI flow or UX design achieves more with less effort.<br
 ### Quick feedback loops matter
 
 Especially in startups, direct, structural solutions can beat endless micro-optimizations.<br /><br />
+
+> Not all problems are best solved by "more optimization."
+> Sometimes the most elegant solution is changing how you approach the problem entirely.
+
+<br />
 
 This project reminded me that not all problems are best solved by "more optimization." For our team, the custom keypad was a single UI change that boosted stability, sped up the experience, and made the app more enjoyable to use.<br /><br />
 
