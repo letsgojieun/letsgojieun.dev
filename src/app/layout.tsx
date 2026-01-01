@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { gaegu, solway } from "@/fonts";
 import { Dockbar } from "@/components/Dockbar";
+import { MainContent } from "@/components/MainContent";
 
 export const metadata: Metadata = {
   title: "letsgojieun.dev | Jieun Go's Front-end Blog & Portfolio",
@@ -39,12 +40,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main
-            style={{ paddingBottom: "calc(var(--dockbar-height) + 16px)" }}
-            className="font-solway min-h-screen overflow-y-auto no-scrollbar"
-          >
-            {children}
-          </main>
+          <MainContent>{children}</MainContent>
           <Dockbar />
         </ThemeProvider>
       </body>
