@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
-import LangToggle from "./LangToggle";
+import SettingsToggle from "./SettingsToggle";
 import { BiLogoBlogger } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import { GoHomeFill } from "react-icons/go";
@@ -65,7 +64,7 @@ export const Dockbar = () => {
             transition-all duration-200 ease-out
             ${
               isActive(nav.href)
-                ? "bg-blue text-white scale-105"
+                ? "dockbar-active scale-105"
                 : "hover:bg-black/5 dark:hover:bg-white/10"
             }
           `}
@@ -73,12 +72,13 @@ export const Dockbar = () => {
           aria-current={isActive(nav.href) ? "page" : undefined}
         >
           <span className="text-xl">{nav.icon}</span>
-          <span className="text-[10px] font-solway mt-0.5">{nav.label}</span>
+          <span className="hidden sm:block text-[10px] font-solway mt-0.5">
+            {nav.label}
+          </span>
         </Link>
       ))}
       <div className="w-px h-8 bg-divider mx-2" />
-      <ThemeToggle />
-      <LangToggle />
+      <SettingsToggle />
     </nav>
   );
 };

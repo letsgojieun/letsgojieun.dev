@@ -23,7 +23,9 @@ const ThemeToggle = () => {
         <BiSolidMoon className="dark:hidden" />
         <BiSolidSun className="hidden dark:block" />
       </span>
-      <span className="text-[10px] font-solway mt-0.5">Theme</span>
+      <span className="hidden sm:block text-[10px] font-solway mt-0.5">
+        Theme
+      </span>
     </button>
   );
 };

@@ -26,7 +26,9 @@ const LangToggle = () => {
       type="button"
     >
       <span className="text-sm font-bold">{lang === "en" ? "EN" : "KO"}</span>
-      <span className="text-[10px] font-solway mt-0.5">Lang</span>
+      <span className="hidden sm:block text-[10px] font-solway mt-0.5">
+        Lang
+      </span>
     </button>
   );
 };

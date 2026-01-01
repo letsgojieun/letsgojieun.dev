@@ -175,6 +175,16 @@ body::-webkit-scrollbar,
     color: var(--color-project-primary);
   }
 
+  /* Dockbar Active State */
+  .dockbar-active {
+    background-color: color-mix(
+      in srgb,
+      var(--color-project-primary) 20%,
+      transparent
+    );
+    color: var(--color-project-primary);
+  }
+
   .project-badge-success {
     @apply px-3 py-1 rounded-full font-medium font-gaegu;
     background-color: color-mix(
