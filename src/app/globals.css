@@ -95,12 +95,18 @@ nav[role="navigation"] a {
 }
 
 /* ===== UTILITY CLASSES ===== */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
+/* Hide scrollbar globally */
+html,
+body,
 .no-scrollbar {
   scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ===== COMPONENT STYLES ===== */
