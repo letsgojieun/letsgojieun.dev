@@ -1,25 +1,15 @@
-"use client";
-import SplitText from "../components/SplitText";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center h-full">
-      <SplitText
-        text="Hi there, I'm Jieun"
-        className="lg:text-7xl sm:text-5xl text-2xl font-bold text-center font-solway"
-        delay={100}
-        duration={0.6}
-        ease="power3.out"
-        splitType="chars"
-        from={{ opacity: 0, y: 40 }}
-        to={{ opacity: 1, y: 0 }}
-        threshold={0.1}
-        rootMargin="-100px"
-        textAlign="center"
+    <div className="flex items-center justify-center min-h-screen">
+      <Image
+        src="/images/home.png"
+        alt='Home Image: "Better to be blurry but exciting than clearly boring!"'
+        width={350}
+        height={350}
+        priority
       />
-      <span className="lg:text-3xl sm:text-2xl text-xl text-center text-subtitle font-gaegu">
-        A front-end developer in Australia.
-      </span>
     </div>
   );
 }
