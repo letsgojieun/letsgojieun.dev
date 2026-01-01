@@ -18,16 +18,19 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="cursor-pointer transition-transform duration-200 hover:scale-110"
+      className="flex flex-col items-center justify-center px-4 py-2 rounded-xl
+        cursor-pointer transition-all duration-200 ease-out
+        hover:bg-black/5 dark:hover:bg-white/10"
       aria-label={`Switch to ${
         resolvedTheme === "dark" ? "light" : "dark"
       } mode`}
       onClick={handleThemeChange}
       type="button"
     >
-      <span className="icon-responsive">
+      <span className="text-xl">
         {resolvedTheme === "dark" ? <BiSolidSun /> : <BiSolidMoon />}
       </span>
+      <span className="text-[10px] font-solway mt-0.5">Theme</span>
     </button>
   );
 };

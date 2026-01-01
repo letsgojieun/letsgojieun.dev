@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Header } from "@/components/Header";
 import { gaegu, solway } from "@/fonts";
+import { Dockbar } from "@/components/Dockbar";
 
 export const metadata: Metadata = {
   title: "letsgojieun.dev | Jieun Go's Front-end Blog & Portfolio",
@@ -39,13 +39,13 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
           <main
-            style={{ height: "calc(100vh - var(--header-height))" }}
-            className="font-solway overflow-y-auto no-scrollbar"
+            style={{ paddingBottom: "calc(var(--dockbar-height) + 16px)" }}
+            className="font-solway min-h-screen overflow-y-auto no-scrollbar"
           >
             {children}
           </main>
+          <Dockbar />
         </ThemeProvider>
       </body>
     </html>

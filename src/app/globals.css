@@ -8,7 +8,7 @@
   --font-solway: Solway, "Apple SD Gothic Neo", Arial, sans-serif;
 
   /* Layout */
-  --header-height: 60px;
+  --dockbar-height: 80px;
 
   /* Light Theme Colors */
   --color-blue: #4493f8;
@@ -84,29 +84,14 @@ span:not(header span) {
   transition: color 0.3s ease-out;
 }
 
-/* ===== HEADER STYLES ===== */
-header {
-  height: var(--header-height);
-  transition: background-color 0.15s ease-out, border-color 0.15s ease-out;
+/* ===== DOCKBAR STYLES ===== */
+nav[role="navigation"] {
+  transition: background-color 0.15s ease-out, border-color 0.15s ease-out,
+    transform 0.2s ease-out;
 }
 
-header a,
-header nav,
-header .icon-responsive {
-  transition: color 0.15s ease-out;
-}
-
-header nav a {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  min-width: fit-content;
-}
-
-header .icon-responsive {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
+nav[role="navigation"] a {
+  transition: all 0.2s ease-out;
 }
 
 /* ===== UTILITY CLASSES ===== */
