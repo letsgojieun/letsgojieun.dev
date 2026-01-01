@@ -28,7 +28,7 @@ const navs = [
     ariaLabel: "Posts page",
   },
   {
-    href: "/portfolio",
+    href: "/work",
     label: "Work",
     icon: <MdWork />,
     ariaLabel: "Work page",
@@ -60,7 +60,7 @@ export const Dockbar = () => {
           href={nav.href}
           className={`
             relative flex flex-col items-center justify-center
-            px-4 py-2 rounded-xl
+            p-2.5 sm:px-4 sm:py-2 rounded-xl
             transition-all duration-200 ease-out
             ${
               isActive(nav.href)

@@ -1,4 +1,4 @@
-import { Project } from "@/types/portfolio";
+import { Project } from "@/types/work";
 import { useRef, useEffect } from "react";
 
 interface UseScrollToElementProps {

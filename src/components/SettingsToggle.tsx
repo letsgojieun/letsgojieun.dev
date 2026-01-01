@@ -50,7 +50,7 @@ const SettingsToggle = () => {
   return (
     <div className="relative" ref={containerRef}>
       <button
-        className="flex flex-col items-center justify-center px-4 py-2 rounded-xl cursor-pointer transition-all duration-200 ease-out hover:bg-black/5 dark:hover:bg-white/10"
+        className="flex flex-col items-center justify-center p-2.5 sm:px-4 sm:py-2 rounded-xl cursor-pointer transition-all duration-200 ease-out hover:bg-black/5 dark:hover:bg-white/10"
         aria-label="Settings"
         onClick={() => setIsOpen(!isOpen)}
         type="button"

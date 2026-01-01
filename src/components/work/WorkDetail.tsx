@@ -2,7 +2,7 @@
 
 import { useEffect, forwardRef } from "react";
 import Image from "next/image";
-import { Project } from "@/types/portfolio";
+
 import { useAspectRatio } from "@/hooks/useAspectRatio";
 import { useMediaControls } from "@/hooks/useMediaControls";
 import {
@@ -10,13 +10,14 @@ import {
   getVideoClasses,
   getImageClasses,
 } from "@/utils/mediaUtils";
+import { Work } from "@/types/work";
 
-interface ProjectDetailProps {
-  project: Project | null;
+interface WorkDetailProps {
+  work: Work | null;
 }
 
-export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
-  function ProjectDetail({ project }, ref) {
+export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
+  function WorkDetail({ work }, ref) {
     // media controls
     const {
       showControls,
@@ -40,9 +41,9 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
     useEffect(() => {
       resetImageAspect();
       resetVideoAspect();
-    }, [project?.id, resetImageAspect, resetVideoAspect]);
+    }, [work?.id, resetImageAspect, resetVideoAspect]);
 
-    if (!project) {
+    if (!work) {
       return (
         <div className="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
           <div className="text-center">
@@ -53,7 +54,7 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
       );
     }
 
-    const isVideo = Boolean(project?.image && project.image.endsWith(".mp4"));
+    const isVideo = Boolean(work?.image && work.image.endsWith(".mp4"));
 
     const containerClasses = getContainerClasses(
       isVideo,
@@ -66,13 +67,13 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
         {/* Header */}
         <div className="space-y-2">
           <h1 className="text-3xl font-bold px-2  rounded-lg inline-block bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-            {project.title}
+            {work.title}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            {project.subtitle}
+            {work.subtitle}
           </p>
           <p className="text-blue-600 dark:text-blue-400 font-medium font-gaegu">
-            {project.period}
+            {work.period}
           </p>
         </div>
 
@@ -80,10 +81,10 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
         <div
           className={`${containerClasses} bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden transition-all duration-500`}
         >
-          {project.image ? (
+          {work.image ? (
             isVideo ? (
               <video
-                src={project.image}
+                src={work.image}
                 autoPlay
                 loop
                 muted
@@ -97,12 +98,12 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
               />
             ) : (
               <Image
-                src={project.image}
-                alt={`${project.title} preview`}
+                src={work.image}
+                alt={`${work.title} preview`}
                 width={800}
                 height={600}
                 className={getImageClasses(imageAspectRatio)}
-                unoptimized={project.image.endsWith(".gif")}
+                unoptimized={work.image.endsWith(".gif")}
                 onLoad={handleImageLoad}
               />
             )
@@ -123,7 +124,7 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
             Tech Stack
           </h3>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
+            {work.techStack.map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full font-medium font-gaegu"
@@ -135,13 +136,13 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
         </div>
 
         {/* Other Tools */}
-        {project.otherTools && project.otherTools.length > 0 && (
+        {work.otherTools && work.otherTools.length > 0 && (
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Other Tools
             </h3>
             <div className="flex flex-wrap gap-2">
-              {project.otherTools.map((tool) => (
+              {work.otherTools.map((tool) => (
                 <span
                   key={tool}
                   className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full font-medium font-gaegu"
@@ -159,7 +160,7 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
             Role & Responsibilities
           </h3>
           <ul className="space-y-2">
-            {project.role.map((item, index) => (
+            {work.role.map((item, index) => (
               <li key={index} className="flex items-start space-x-2">
                 <span className="text-blue-500 dark:text-blue-400 mt-1">•</span>
                 <span className="text-gray-700 dark:text-gray-300">{item}</span>
@@ -174,7 +175,7 @@ export const ProjectDetail = forwardRef<HTMLDivElement, ProjectDetailProps>(
             Key Achievements & Impact
           </h3>
           <ul className="space-y-2">
-            {project.achievements.map((achievement, index) => (
+            {work.achievements.map((achievement, index) => (
               <li key={index} className="flex items-start space-x-2">
                 <span className="text-green-500 dark:text-green-400 mt-1">
                   ✓
