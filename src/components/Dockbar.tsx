@@ -29,9 +29,9 @@ const navs = [
   },
   {
     href: "/portfolio",
-    label: "Portfolio",
+    label: "Work",
     icon: <MdWork />,
-    ariaLabel: "Portfolio page",
+    ariaLabel: "Work page",
   },
 ];
 
