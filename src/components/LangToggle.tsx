@@ -20,10 +20,7 @@ const LangToggle = () => {
 
   return (
     <button
-      className={`flex flex-col items-center justify-center px-4 py-2 rounded-xl
-        cursor-pointer transition-all duration-200 ease-out
-        hover:bg-black/5 dark:hover:bg-white/10
-        `}
+      className="flex flex-col items-center justify-center px-4 py-2 rounded-xl cursor-pointer transition-all duration-200 ease-out hover:bg-black/5 dark:hover:bg-white/10"
       aria-label="Toggle language"
       onClick={handleLangToggle}
       type="button"
