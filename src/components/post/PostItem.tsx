@@ -12,33 +12,33 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className=" hover:bg-content  p-4 flex sm:flex-row flex-col justify-between sm:items-center"
+      className="group flex flex-col rounded-xl overflow-hidden border divider-theme bg-header hover:shadow-lg transition-all duration-300 "
       aria-label={`${post.title} post`}
     >
-      <div className="flex flex-col gap-2">
-        <div>
-          <h1 className="text-lg md:text-xl font-semibold text-blue">
-            {post.title}
-          </h1>
-          <p className="text-md md:text-base">{post.description}</p>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <TagBadge key={tag} tag={tag} />
-          ))}
-        </div>
-        <p className="text-gray-500 font-gaegu ">posted on {post.date}</p>
-      </div>
-      <div className="flex-shrink-0 w-full sm:w-auto">
+      {/* Thumbnail */}
+      <div className="relative w-full aspect-[3/1] overflow-hidden">
         <Image
           src={post.thumbnail}
           alt={post.title}
-          width={200}
-          height={120}
+          fill
           quality={60}
-          className="object-cover rounded-md w-full h-48 sm:w-60 sm:h-36 md:w-72 md:h-40"
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
           priority={idx < 3}
         />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col gap-2 p-4 flex-1">
+        <h1 className="text-lg font-semibold text-blue line-clamp-2">
+          {post.title}
+        </h1>
+        <p className="text-sm text-subtitle line-clamp-2">{post.description}</p>
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+          {post.tags.slice(0, 3).map((tag) => (
+            <TagBadge key={tag} tag={tag} />
+          ))}
+        </div>
+        <p className="text-xs text-gray-500 font-gaegu">{post.date}</p>
       </div>
     </Link>
   );
