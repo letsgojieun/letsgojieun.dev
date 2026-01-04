@@ -2,24 +2,15 @@ export const PROFILE = {
   name: "JIEUN GO",
   image: "/images/profile.png",
   email: "letsgojieun@gmail.com",
-  strengths: [
-    "Creative problem-solving",
-    "Flexibility and adaptability",
-    "User-centric mindset",
-    "Strong communication and teamwork",
-  ],
-  aboutInfo: [
-    "💼 3years of experience",
-    "📍 Based in Australia",
-    "⚙️ TechStack: ReactNative, Next, Zustand, Redux, React-Query, Typescript",
-  ],
+  linkedin: "https://www.linkedin.com/in/letsgojieun/",
+  github: "https://github.com/letsgojieun",
 };
 
 export const SKILLS = [
   "Front-end development",
+  "Cross-Platform",
   "Responsive web",
   "Composable UI",
-  "Cross-Platform",
   "Troubleshooting",
   "Agile/Scrum",
 ];
