@@ -6,7 +6,7 @@ export const WORK: Work[] = [
     title: "Shoobbang",
     subtitle:
       "Cross-platform Baking Recipe & Ingredient Management App Development",
-    period: "Freelance, 2024.03 – Present",
+    period: "Personal Project, 2024.03 – Present",
     description:
       "Cross-platform Baking Recipe & Ingredient Management App Development",
     image: "/portfolio/shoobbang.mp4",
