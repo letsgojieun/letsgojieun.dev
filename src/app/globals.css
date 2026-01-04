@@ -11,40 +11,40 @@
   --dockbar-height: 80px;
 
   /* Light Theme Colors */
-  --color-blue: #4493f8;
-  --color-divider: #d0d9e0;
-  --color-header: #f6f8fa;
-  --color-content: #f6f8fa;
-  --color-button: #f6f8fa;
-  --color-subtitle: #888888;
+  --color-blue: #8eaeff;
+  --color-divider: #d0ddf0;
+  --color-header: #ffffff;
+  --color-content: #f5f8ff;
+  --color-button: #edf2ff;
+  --color-subtitle: #6b7a8c;
 
   /* Portfolio Colors - Light */
-  --color-project-primary: #3b82f6;
-  --color-project-secondary: #1d4ed8;
-  --color-project-accent: #10b981;
-  --color-project-success: #059669;
-  --color-project-bg: #f8fafc;
-  --color-project-border: #e2e8f0;
-  --color-project-text: #1e293b;
-  --color-project-muted: #64748b;
+  --color-project-primary: #8eaeff;
+  --color-project-secondary: #6b8fe8;
+  --color-project-accent: #e9ff8a;
+  --color-project-success: #c8e85a;
+  --color-project-bg: #f8faff;
+  --color-project-border: #d8e2f0;
+  --color-project-text: #1e2a3d;
+  --color-project-muted: #5a6878;
 }
 
 .dark {
-  --color-divider: #3d444d;
-  --color-header: #02040a;
-  --color-content: #151b23;
-  --color-button: #202830;
-  --color-subtitle: #757575;
+  --color-divider: #2e3a4a;
+  --color-header: #080c14;
+  --color-content: #0d1220;
+  --color-button: #161d2e;
+  --color-subtitle: #8a98a8;
 
   /* Portfolio Colors - Dark */
-  --color-project-primary: #60a5fa;
-  --color-project-secondary: #3b82f6;
-  --color-project-accent: #34d399;
-  --color-project-success: #10b981;
-  --color-project-bg: #0f172a;
-  --color-project-border: #334155;
-  --color-project-text: #f1f5f9;
-  --color-project-muted: #94a3b8;
+  --color-project-primary: #a8c4ff;
+  --color-project-secondary: #8eaeff;
+  --color-project-accent: #8fa83d;
+  --color-project-success: #7a9435;
+  --color-project-bg: #0a1020;
+  --color-project-border: #283448;
+  --color-project-text: #e8f0ff;
+  --color-project-muted: #98a8b8;
 }
 
 /* ===== BASE STYLES ===== */
@@ -114,6 +114,9 @@ body::-webkit-scrollbar,
   /* Layout Components */
   .section-title {
     @apply text-2xl font-bold mb-4;
+    background: linear-gradient(to top, var(--color-project-accent) 40%, transparent 40%);
+    width: fit-content;
+    padding: 0 4px;
   }
 
   .border-rounded {
@@ -131,7 +134,21 @@ body::-webkit-scrollbar,
   }
 
   .button-hover:hover {
-    box-shadow: 0 2px 8px 0 var(--color-divider);
+    box-shadow: 0 4px 12px 0 color-mix(in srgb, var(--color-project-accent) 60%, transparent);
+    border-color: var(--color-project-accent);
+  }
+
+  /* Accent highlight */
+  .accent-highlight {
+    background-color: var(--color-project-accent);
+  }
+
+  .bg-project-accent {
+    background-color: var(--color-project-accent);
+  }
+
+  .border-project-primary {
+    border-color: var(--color-project-primary);
   }
 
   .icon-responsive {
@@ -179,10 +196,10 @@ body::-webkit-scrollbar,
   .dockbar-active {
     background-color: color-mix(
       in srgb,
-      var(--color-project-primary) 20%,
+      var(--color-project-accent) 50%,
       transparent
     );
-    color: var(--color-project-primary);
+    color: var(--color-project-text);
   }
 
   .project-badge-success {
@@ -232,6 +249,7 @@ body::-webkit-scrollbar,
 .post-content h2 {
   @apply w-fit font-bold px-1 text-base;
   font-size: 1.2rem;
+  background: linear-gradient(to top, var(--color-project-accent) 35%, transparent 35%);
 }
 
 .post-content h3 {
