@@ -114,7 +114,11 @@ body::-webkit-scrollbar,
   /* Layout Components */
   .section-title {
     @apply text-2xl font-bold mb-4;
-    background: linear-gradient(to top, var(--color-project-accent) 40%, transparent 40%);
+    background: linear-gradient(
+      to top,
+      var(--color-project-accent) 40%,
+      transparent 40%
+    );
     width: fit-content;
     padding: 0 4px;
   }
@@ -134,7 +138,8 @@ body::-webkit-scrollbar,
   }
 
   .button-hover:hover {
-    box-shadow: 0 4px 12px 0 color-mix(in srgb, var(--color-project-accent) 60%, transparent);
+    box-shadow: 0 4px 12px 0
+      color-mix(in srgb, var(--color-project-accent) 60%, transparent);
     border-color: var(--color-project-accent);
   }
 
@@ -147,8 +152,28 @@ body::-webkit-scrollbar,
     background-color: var(--color-project-accent);
   }
 
+  .text-project-accent {
+    color: var(--color-project-accent);
+  }
+
   .border-project-primary {
     border-color: var(--color-project-primary);
+  }
+
+  .hover-shadow-primary:hover {
+    box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--color-project-primary)
+          30%, transparent);
+  }
+
+  .project-badge-accent {
+    @apply px-2.5 py-1 rounded-lg font-medium font-gaegu text-sm;
+    background-color: color-mix(
+      in srgb,
+      var(--color-project-accent) 40%,
+      transparent
+    );
+    border: 1px solid var(--color-project-accent);
+    color: var(--color-project-primary);
   }
 
   .icon-responsive {
@@ -164,13 +189,16 @@ body::-webkit-scrollbar,
 
   /* Portfolio Components */
   .project-card {
-    @apply p-4 rounded-lg border cursor-pointer transition-all duration-200 hover:shadow-md;
+    @apply p-4 rounded-lg border cursor-pointer transition-all duration-200;
     background-color: var(--color-project-bg);
     border-color: var(--color-project-border);
   }
 
   .project-card:hover {
     border-color: var(--color-project-primary);
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px
+      color-mix(in srgb, var(--color-project-primary) 30%, transparent);
   }
 
   .project-card-selected {
@@ -249,7 +277,11 @@ body::-webkit-scrollbar,
 .post-content h2 {
   @apply w-fit font-bold px-1 text-base;
   font-size: 1.2rem;
-  background: linear-gradient(to top, var(--color-project-accent) 35%, transparent 35%);
+  background: linear-gradient(
+    to top,
+    var(--color-project-accent) 35%,
+    transparent 35%
+  );
 }
 
 .post-content h3 {

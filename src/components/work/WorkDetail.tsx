@@ -45,7 +45,7 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
 
     if (!work) {
       return (
-        <div className="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
+        <div className="flex items-center justify-center h-full project-text-muted">
           <div className="text-center">
             <div className="text-4xl mb-4">📋</div>
             <p className="text-lg">Select a project to view details</p>
@@ -66,20 +66,14 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
       <div ref={ref} className="w-4/5 mx-auto pt-8 space-y-6">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold px-2  rounded-lg inline-block bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-            {work.title}
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            {work.subtitle}
-          </p>
-          <p className="text-blue-600 dark:text-blue-400 font-medium font-gaegu">
-            {work.period}
-          </p>
+          <h1 className="project-title">{work.title}</h1>
+          <p className="text-lg project-text-muted">{work.subtitle}</p>
+          <p className="project-period font-medium font-gaegu">{work.period}</p>
         </div>
 
         {/* Project Image */}
         <div
-          className={`${containerClasses} bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden transition-all duration-500`}
+          className={`${containerClasses} bg-button rounded-lg overflow-hidden transition-all duration-500`}
         >
           {work.image ? (
             isVideo ? (
@@ -109,7 +103,7 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
             )
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="text-center project-text-muted">
                 <div className="text-4xl mb-2">🖼️</div>
                 <p>Project Image</p>
                 <p className="text-sm">(Coming Soon)</p>
@@ -120,15 +114,10 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
 
         {/* Tech Stack */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Tech Stack
-          </h3>
+          <h3 className="project-detail-title">Tech Stack</h3>
           <div className="flex flex-wrap gap-2">
             {work.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full font-medium font-gaegu"
-              >
+              <span key={tech} className="project-badge-primary">
                 {tech}
               </span>
             ))}
@@ -138,15 +127,10 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
         {/* Other Tools */}
         {work.otherTools && work.otherTools.length > 0 && (
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-              Other Tools
-            </h3>
+            <h3 className="project-detail-title">Other Tools</h3>
             <div className="flex flex-wrap gap-2">
               {work.otherTools.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full font-medium font-gaegu"
-                >
+                <span key={tool} className="project-badge-accent">
                   {tool}
                 </span>
               ))}
@@ -156,14 +140,12 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
 
         {/* Role & Responsibilities */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Role & Responsibilities
-          </h3>
+          <h3 className="project-detail-title">Role & Responsibilities</h3>
           <ul className="space-y-2">
             {work.role.map((item, index) => (
               <li key={index} className="flex items-start space-x-2">
-                <span className="text-blue-500 dark:text-blue-400 mt-1">•</span>
-                <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                <span className="project-period mt-1">•</span>
+                <span className="project-text">{item}</span>
               </li>
             ))}
           </ul>
@@ -171,18 +153,12 @@ export const WorkDetail = forwardRef<HTMLDivElement, WorkDetailProps>(
 
         {/* Key Achievements */}
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Key Achievements & Impact
-          </h3>
+          <h3 className="project-detail-title">Key Achievements & Impact</h3>
           <ul className="space-y-2">
             {work.achievements.map((achievement, index) => (
               <li key={index} className="flex items-start space-x-2">
-                <span className="text-green-500 dark:text-green-400 mt-1">
-                  ✓
-                </span>
-                <span className="text-gray-700 dark:text-gray-300">
-                  {achievement}
-                </span>
+                <span className="text-project-accent mt-1">✓</span>
+                <span className="project-text">{achievement}</span>
               </li>
             ))}
           </ul>

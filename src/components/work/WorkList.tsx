@@ -40,7 +40,7 @@ export function WorkList({ works, selectedWork, onWorkSelect }: WorkListProps) {
 
               <div className="flex flex-wrap gap-1 mt-3">
                 {work.techStack.slice(0, 4).map((tech) => (
-                  <span key={tech} className="project-badge-primary">
+                  <span key={tech} className="project-badge-accent">
                     {tech}
                   </span>
                 ))}
