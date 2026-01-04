@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SettingsToggle from "./SettingsToggle";
+import ThemeToggle from "./ThemeToggle";
 import { BiLogoBlogger } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import { GoHomeFill } from "react-icons/go";
@@ -78,7 +78,7 @@ export const Dockbar = () => {
         </Link>
       ))}
       <div className="w-px h-8 bg-divider mx-2" />
-      <SettingsToggle />
+      <ThemeToggle />
     </nav>
   );
 };
