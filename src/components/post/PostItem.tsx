@@ -12,11 +12,11 @@ export const PostItem = ({ post, idx }: PostItemProps) => {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="group flex flex-col rounded-xl overflow-hidden border divider-theme bg-header hover:shadow-lg transition-all duration-300 "
+      className="group flex flex-col rounded-xl overflow-hidden border divider-theme bg-header hover-shadow-primary transition-all duration-300"
       aria-label={`${post.title} post`}
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-[3/1] overflow-hidden">
+      <div className="relative w-full aspect-2/1 overflow-hidden">
         <Image
           src={post.thumbnail}
           alt={post.title}
