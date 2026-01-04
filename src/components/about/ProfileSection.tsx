@@ -14,8 +14,8 @@ export function ProfileSection() {
         <Image
           src={PROFILE.image}
           alt="jieungo's profile image"
-          width={250}
-          height={250}
+          width={200}
+          height={200}
           sizes="(max-width: 768px) 80vw, 250px"
           quality={60}
           className="rounded-full object-cover border-2 divider-theme bg-button"
@@ -27,33 +27,6 @@ export function ProfileSection() {
           <h1 id="about-profile" className="section-title">
             {PROFILE.name}
           </h1>
-          <div className="flex gap-3">
-            <Link
-              href={PROFILE.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-button border divider-theme hover:scale-110 hover:accent-highlight transition-all duration-200"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn className="text-xl" />
-            </Link>
-            <Link
-              href={PROFILE.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-button border divider-theme hover:scale-110 hover:accent-highlight transition-all duration-200"
-              aria-label="GitHub"
-            >
-              <FaGithub className="text-xl" />
-            </Link>
-            <Link
-              href={`mailto:${PROFILE.email}`}
-              className="p-3 rounded-full bg-button border divider-theme hover:scale-110 hover:accent-highlight transition-all duration-200"
-              aria-label="Email"
-            >
-              <HiOutlineMail className="text-xl" />
-            </Link>
-          </div>
         </div>
         <div>
           <span className="font-bold">
@@ -67,12 +40,39 @@ I focus on solving problems and improving metrics rather than just adding featur
 
 Key Experience
 
-Built Shoobbang, a baking recipe app, from design to deployment—refined it based on real bakers' feedback.
+Built Shoobbang, a baking recipe app, 
+from design to deployment—refined it based on real bakers' feedback.
 Prefer agile workflow: build small, ship fast → gather feedback → iterate. 
 
-Currently exploring the full service lifecycle (A to Z), 
-and studying Rive to create interactive animations.`}
+Currently exploring the full service lifecycle (A to Z), and studying Rive to create interactive animations.`}
           </p>
+        </div>
+        <div className="flex gap-2 mt-4">
+          <Link
+            href={PROFILE.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg bg-button border divider-theme hover:scale-105 hover:accent-highlight transition-all duration-200"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn className="text-base" />
+          </Link>
+          <Link
+            href={PROFILE.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg bg-button border divider-theme hover:scale-105 hover:accent-highlight transition-all duration-200"
+            aria-label="GitHub"
+          >
+            <FaGithub className="text-base" />
+          </Link>
+          <Link
+            href={`mailto:${PROFILE.email}`}
+            className="p-2 rounded-lg bg-button border divider-theme hover:scale-105 hover:accent-highlight transition-all duration-200"
+            aria-label="Email"
+          >
+            <HiOutlineMail className="text-base" />
+          </Link>
         </div>
       </div>
     </section>
